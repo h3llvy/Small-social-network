@@ -1,0 +1,151 @@
+body {
+    background: #EAEAEA;
+    font-family: 'Montserrat';
+}
+
+.all {
+    background: #F1F1F1;
+    margin: 0 30%;
+    padding: 0% 0;
+    position: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    border: none;
+    font-family: 'Montserrat';
+    outline: none;
+    color: #fff;
+    background: #222222;
+    display: inline;
+    padding: 8px;
+    margin: 0px 4px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    display: inline-block;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    cursor: pointer;
+    margin-left: 10px;
+    display: inline-block;
+}
+h1:hover{
+    cursor: pointer;
+
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+#active_email{
+    background: red;
+    text-align: justify;
+    color: white;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    padding:9px;
+    margin: 0 -20px 20px -20px;
+}
+
+#active_email:hover{
+    background: limegreen;
+    cursor: pointer;
+}
+
+nav {
+    float: right;
+    margin: 30px 10px 0 0;
+}
+
+main {
+
+    padding: 20px;
+    text-align: justify;
+}
+
+th, tb {
+    margin-right: 150px;
+}
+
+.profile{
+    display: flex;
+    padding: 10px 30px;
+}
+.profile img{
+    border: 2px solid black;
+}
+.profile img:hover{
+    border: 2px solid black;
+    cursor: pointer;
+}
+.profile li {
+    padding-bottom: 10px;
+}
+.info {
+    list-style-type: none;
+    display: inline-block;
+    /*float: top;*/
+}
+.right {
+    margin-left:50px;
+    text-align: right;
+    float: right;
+}
+
+
+article{
+    padding: 15px 30px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    margin: 0 20%;
+}
+
+input{
+    float: right;
+}
+
+article div{
+    position:relative;
+    padding-bottom: 10px;
+
+}
+
+article button{
+    position:relative;
+    margin-top: 15px;
+    left:10%;
+}
+
+#reg{
+    left: 25%;
+}
+
+footer {
+    float: bottom;
+    padding: 8px;
+    color: white;
+    background: #222222;
+}
+#active_email_green {
+    background: limegreen;
+    text-align: justify;
+    color: white;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    border-radius: 7px;
+    padding:9px;
+    margin: 0 -20px 20px -20px;
+}
+#users {
+    margin: 0 5%;
+}
+
+
