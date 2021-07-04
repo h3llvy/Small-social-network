@@ -35,6 +35,9 @@ else if ($captcha_success->success == true){
             } else if (($curr_code!=$code)){
                 echo "Неверный код активаации";
             }
+        }else {
+            echo "lie cookie";
+            exit();
         }
     } else {
         echo "Вы без куки";

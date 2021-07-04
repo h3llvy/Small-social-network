@@ -11,10 +11,8 @@ if ($captcha_success->success == false) {
 } //Пользователь прошел верификацию
 else {
     if (isset($_COOKIE['id'])) {
-
-        require('connection.php');
-
         $id = $_COOKIE['id'];
+        require('connection.php');
         $sql = "SELECT * FROM user WHERE id = '$id'";
         $res = mysqli_query($link, $sql);
         if (mysqli_num_rows($res) == 1) {
@@ -36,8 +34,11 @@ pass = '$pass'
             mysqli_query($link, $sql);
             echo "Успех";
 
+        }else {
+            echo "lie cookie";
+            exit();
         }
-    } else echo "Err cookie";
+    } else echo "Для просмора данной страницы нужно быть авторизоанным";
 
 }
 ?>
