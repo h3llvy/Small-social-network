@@ -82,7 +82,7 @@ while ($row = mysqli_fetch_array($res)) {
 
 
     echo '
-            <tr onclick="document.location=`https://h3llvy.000webhostapp.com/?id=' . $key . '`">
+            <tr onclick="document.location=`/?id=' . $key . '`">
                 <td>' . $key . '</td>
                 <td><img height="100px" width="100px" src="' . $img . '"></td>
                 <td>' . $name . '</td>
