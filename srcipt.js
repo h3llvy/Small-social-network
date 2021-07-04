@@ -1,7 +1,7 @@
 const title = document.querySelector('h1')
 
 title.onclick = function () {
-    window.location.replace("https://h3llvy.000webhostapp.com/");
+    window.location.replace("/");
 
 }
 
@@ -155,7 +155,7 @@ function in_post() {
         if (http.readyState == 4 && http.status == 200) {
             if (http.responseText === '1') {
 
-                window.location.href = 'https://h3llvy.000webhostapp.com/';
+                window.location.href = '/';
                 // ($.get("src/account.php", function (my_var) {
                 //     document.querySelector('main').innerHTML = my_var
                 // }, 'html'))
@@ -195,7 +195,7 @@ function up_post() {
     http.onload = function () {
         if (http.readyState == 4 && http.status == 200) {
             if (http.responseText === '1') {
-                window.location.href = 'https://h3llvy.000webhostapp.com/';
+                window.location.href = '/';
                 // ($.get("src/account.php", function (my_var) {
                 //     document.querySelector('main').innerHTML = my_var
                 // }, 'html'))
