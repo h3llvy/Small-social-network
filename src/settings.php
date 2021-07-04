@@ -1,21 +1,24 @@
 <?php
-require '../php_actions/connection.php';
-$id = $_COOKIE['id'];
-$sql = "SELECT * FROM user WHERE id = '$id'";
-$res = mysqli_query($link, $sql) or die();
-while ($row = mysqli_fetch_array($res)){
-    $state = $row['state'];
-}
+if (isset($_COOKIE['id'])) {
 
-echo'
+    require '../php_actions/connection.php';
+
+    $id = $_COOKIE['id'];
+    $sql = "SELECT * FROM user WHERE id = '$id'";
+    $res = mysqli_query($link, $sql) or die();
+    while ($row = mysqli_fetch_array($res)) {
+        $state = $row['state'];
+    }
+
+    echo '
 <article>';
-if(!$state) {
-    echo '  
+    if (!$state) {
+        echo '  
     <div onclick="activeEmail()" id="active_email">У вас неактивированная почта! Нажмите сюда, чтобы это исправить и получить все возможности! </div>';
-}   else echo '  
+    } else echo '  
     <div id="active_email_green">Почта активирована! </div>';
 
-echo'
+    echo '
             
             <div id="labels">
             <div>
@@ -40,4 +43,7 @@ echo'
             </div>
         </article>
         ';
+} else{
+    echo "Для просмора данной страницы нужно быть авторизоанным";
+}
 ?>
