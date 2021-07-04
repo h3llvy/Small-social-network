@@ -67,8 +67,8 @@ if (isset($_COOKIE["id"])) {
             if ($flag) {
 
                 $key = $_GET['id'];
-                $sql = "SELECT * FROM user";
-                $res = mysqli_query($link, $sql) or die();
+                $sql = sprintf('SELECT * FROM user WHERE `key`="%s"',$key);
+                $res = mysqli_query($link, $sql);
                 while ($row = mysqli_fetch_array($res)) {
                     if ($key == $row['key']) {
                         $img = (is_null($row['photo']) ? 'src/ava_def.png' : $row['photo']);
@@ -118,7 +118,7 @@ if (isset($_COOKIE["id"])) {
         }
     }
 }
-if (!isset($_COOKIE["id"])) {
+if (!isset($_COOKIE["id"]) or mysqli_num_rows($res) != 1) {
     for ($i = 0; $i < 16; $i++) {
         echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae dicta enim facere fugiat magni minima
                     nobis suscipit voluptate. Consequuntur magni nulla quia sed tempore. Facilis id perspiciatis totam

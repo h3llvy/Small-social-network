@@ -4,6 +4,7 @@ title.onclick = function () {
     window.location.replace("https://h3llvy.000webhostapp.com/");
 
 }
+
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -11,8 +12,8 @@ function validateEmail(email) {
 
 
 function validatePass(pass) {
-    if((pass.length >= 8 )&&(pass.length <= 40))
-    return true;
+    if ((pass.length >= 8) && (pass.length <= 40))
+        return true;
     return false;
 }
 
@@ -83,16 +84,16 @@ function settings() {
     let oldPassword = document.querySelector('#oldPassword').value
     let curPassword = document.querySelector('#curPassword').value
     let verification = document.querySelector('#verification').value
-    if(!validatePass(curPassword)) {
-        alert("Пароль мб (8-40 символовв)")
-        return;
+    if ((oldPassword.length + curPassword.length + verification.length)!=0) {
+        if (!validatePass(curPassword)) {
+            alert("Пароль мб (8-40 символовв)")
+            return;
+        }
+        if (curPassword != verification) {
+            alert("Пароли не сходятся!");
+            return;
+        }
     }
-    if (curPassword != verification) {
-        alert("Пароли не сходятся!");
-        return;
-    }
-
-
     let formData = new FormData();
     formData.append("name", name);
     formData.append("img", img);
@@ -110,13 +111,12 @@ function settings() {
     grecaptcha.reset();
 }
 
-function viewUsers(get='') {
-    if (get.length==0) {
+function viewUsers(get = '') {
+    if (get.length == 0) {
         changeMain('src/users.php');
-    }
-    else {
+    } else {
         let http = new XMLHttpRequest();
-        http.open("GET", "./src/users.php?sort="+get);
+        http.open("GET", "./src/users.php?sort=" + get);
         http.onload = function () {
             if (http.readyState == 4 && http.status == 200) {
                 document.querySelector('main').innerHTML = http.responseText;
@@ -124,7 +124,7 @@ function viewUsers(get='') {
         };
         http.send();
     }
-    document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("DOMContentLoaded", function (event) {
 
     });
 
@@ -142,7 +142,7 @@ function changeMain(url) {
 }
 
 function in_post() {
-    let login = document.querySelector('#login').value
+    let login = document.querySelector('#login').value.toLowerCase()
     let password = document.querySelector('#password').value
     let formData = new FormData();
     formData.append("email", login);
@@ -165,17 +165,24 @@ function in_post() {
         }
     };
     http.send(formData);
+    grecaptcha.reset();
 }
 
 function up_post() {
-    let login = document.querySelector('#login').value
-    if(!validateEmail(login)) {
+    let login = document.querySelector('#login').value.toLowerCase()
+    if (!validateEmail(login)) {
         alert("Неверный форматт почты")
         return;
     }
     let password = document.querySelector('#password').value
-    if(!validatePass(password)) {
+    let password_ver = document.querySelector('#password_ver').value
+    if (!validatePass(password)) {
         alert("Пароль мб (8-40 символовв)")
+        return;
+
+    }
+    if (password_ver!==password){
+        alert("Не сходятся пароли!")
         return;
     }
     let formData = new FormData();
@@ -198,6 +205,7 @@ function up_post() {
         }
     };
     http.send(formData);
+    grecaptcha.reset();
 }
 
 
